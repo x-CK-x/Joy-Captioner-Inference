@@ -1,24 +1,26 @@
 name: joycaption
 channels:
-  - conda-forge          # unified channel works on Windows / macOS / Linux
+  - conda-forge            # pytorch-gpu meta-package lives here
+  - pytorch                # authoritative CUDA wheels for PT 2.7
 dependencies:
-  # ─ Core ─
-  - python = 3.11.9
-  - pytorch-gpu = 2.7      # pulls matching torchvision / torchaudio + CUDA-aware build
-  - timm                   # vision back-bone helpers
-  - safetensors            # fast weight loader
-  - pillow
-  - matplotlib             # optional but nice for debug
+  # ─ GPU PyTorch stack (CUDA 12.4) ─
+  - pytorch-gpu = 2.7.*
+  - torchvision = 0.20.*       # ← explicit, GPU build
+  - torchaudio = 2.7.*
+  # (pytorch-cuda 12.4 gets pulled automatically)
 
-  # ─ Hugging Face / Gradio stack ─
-  - pip                    # keep pip separate so conda env solve stays fast
+  # misc native deps
+  - python = 3.11.9
+  - timm
+  - safetensors
+  - pillow
+  - matplotlib
+
+  # ─ HF / Gradio stack ─
+  - pip
   - pip:
       - gradio>=4.24
       - huggingface_hub
-      - transformers==4.51.0   # pinned to the model release
+      - transformers==4.51.0
       - accelerate
       - sentencepiece
-      #  ⚠  liger-kernel intentionally omitted (needs Triton >= 2.3.1 Linux-only)
-
-# Optional CUDA override (Linux users, uncomment if you need a specific toolkit)
-#  - cudatoolkit = 12.4
