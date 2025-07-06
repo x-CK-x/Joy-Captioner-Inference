@@ -1,0 +1,24 @@
+name: joycaption
+channels:
+  - conda-forge          # unified channel works on Windows / macOS / Linux
+dependencies:
+  # ─ Core ─
+  - python = 3.11.9
+  - pytorch-gpu = 2.7      # pulls matching torchvision / torchaudio + CUDA-aware build
+  - timm                   # vision back-bone helpers
+  - safetensors            # fast weight loader
+  - pillow
+  - matplotlib             # optional but nice for debug
+
+  # ─ Hugging Face / Gradio stack ─
+  - pip                    # keep pip separate so conda env solve stays fast
+  - pip:
+      - gradio>=4.24
+      - huggingface_hub
+      - transformers==4.51.0   # pinned to the model release
+      - accelerate
+      - sentencepiece
+      #  ⚠  liger-kernel intentionally omitted (needs Triton >= 2.3.1 Linux-only)
+
+# Optional CUDA override (Linux users, uncomment if you need a specific toolkit)
+#  - cudatoolkit = 12.4
