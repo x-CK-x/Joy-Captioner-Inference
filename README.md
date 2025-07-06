@@ -15,4 +15,5 @@ Linux/Mac Users:
 
 then based on the same criteria above run one of the following:
 > run_joycaption0.sh
+
 > run_joycaption1.sh
