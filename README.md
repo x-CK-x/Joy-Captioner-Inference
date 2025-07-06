@@ -19,3 +19,7 @@ then based on the same criteria above run one of the following:
 > run_joycaption0.sh
 
 > run_joycaption1.sh
+
+![First-Tab-Single-Image-Model](https://github.com/user-attachments/assets/ff1ffc8c-c887-4730-871d-ba99fe457217)
+![Second-Tab-Batch-Image-Model](https://github.com/user-attachments/assets/755d7e16-27a1-423d-a581-cf804f12b787)
+
