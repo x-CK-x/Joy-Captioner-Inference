@@ -7,7 +7,9 @@ Windows Users:
 if you have one gpu, double-click:
 > run_local0.bat
 
-if you two gpus, double-click:
+if you two gpus, double-click either:
+> run_local0.bat
+or
 > run_local1.bat
 
 Linux/Mac Users:
